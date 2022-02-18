@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const { getGuideById } = require('../controllers/guide');
+const { getGuideByGame } = require('../controllers/guide');
 
 // API path: /api/guide
 const router = Router()
 
-router.get('/:game', getGuideById)
+router.get('/:game', getGuideByGame)
 
 module.exports = router;

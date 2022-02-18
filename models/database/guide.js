@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const FeatureSchema = Schema({
+const GuideSchema = Schema({
     skills:{
         type: Array,
         require: [true, 'skills are required'],
@@ -15,4 +15,4 @@ const FeatureSchema = Schema({
     },
 })
 
-module.exports = model('Feature', FeatureSchema)
+module.exports = model('guides', GuideSchema)

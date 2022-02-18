@@ -11,4 +11,4 @@ const GameSchema = Schema({
     },
 })
 
-module.exports = model('Game', GameSchema)
+module.exports = model('games', GameSchema)
