@@ -8,7 +8,8 @@ class Server {
         this.app = express()
 
         this.paths = {
-            guide: '/api/guide'
+            guide: '/api/guide',
+            leaderboard: '/api/leaderboard',
         }
 
         // Connect to database
@@ -33,6 +34,7 @@ class Server {
 
     routes() {
         this.app.use(this.paths.guide, require('../routes/guide'))
+        this.app.use(this.paths.leaderboard, require('../routes/leaderboard'))
     }
 
     listen() {
