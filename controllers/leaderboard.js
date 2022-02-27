@@ -18,6 +18,23 @@ const postScore = async (req = request, res = response) => {
     }
 }
 
+const getLeaderboard = async (req = request, res = response) => {
+    const { exercise } = req.params
+
+    try {
+        const leaderboard = await Leaderboard.find({ "exercise": exercise }).sort({ score: 1 })
+
+        res.json(
+            leaderboard
+        )
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Internal Server Error.'
+        })
+    }
+}
+
 module.exports = {
-    postScore
+    postScore,
+    getLeaderboard
 }

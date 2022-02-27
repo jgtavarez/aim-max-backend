@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { postScore } = require('../controllers/leaderboard');
+const { postScore, getLeaderboard } = require('../controllers/leaderboard');
 const { validateExercise } = require('../helpers/validate-database');
 const { validateFields } = require('../middlewares/validate-fields');
 
@@ -17,5 +17,13 @@ router.post('/',
     validateFields
 ],
 postScore)
+
+router.get('/:exercise',
+[
+    check('exercise', 'exercise is required').not().isEmpty(),
+    check('exercise').custom(validateExercise),
+    validateFields
+],
+getLeaderboard)
 
 module.exports = router;
