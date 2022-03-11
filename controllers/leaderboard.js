@@ -22,7 +22,7 @@ const getLeaderboard = async (req = request, res = response) => {
     const { exercise } = req.params
 
     try {
-        const leaderboard = await Leaderboard.find({ "exercise": exercise }).sort({ score: 1 })
+        const leaderboard = await Leaderboard.find({ "exercise": exercise }).sort({ score: 1 }).limit(10)
 
         res.json(
             leaderboard
